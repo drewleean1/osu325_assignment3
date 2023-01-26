@@ -6,7 +6,7 @@ def dna_match_bottomup(DNA1, DNA2):
         for j in range(n + 1):
             if i == 0 or j == 0:
                 cache[i][j] = 0
-            elif str1[i - 1] == str2[j - 1]:
+            elif DNA1[i - 1] == DNA2[j - 1]:
                 cache[i][j] = cache[i - 1][j - 1] + 1
             else:
                 cache[i][j] = max(cache[i - 1][j], cache[i][j - 1])
