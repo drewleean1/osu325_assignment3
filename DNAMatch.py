@@ -24,7 +24,7 @@ def dna_match_bottomup(DNA1, DNA2):
 def dna_match_topdown_helper(DNA1, DNA2, m, n, cache):
     if m <= 0 or n <= 0:
         return 0
-    elif DNA1[m-1] == DNA2[n-1]:
+    if DNA1[m-1] == DNA2[n-1]:
         if cache[m-1][n-1] > 0:
             temporary_result = 1 + cache[m-1][n-1]
         else:
@@ -48,8 +48,9 @@ def dna_match_topdown(DNA1, DNA2):
 
     m = len(DNA1)-1
     n = len(DNA2)-1
-    if m < 0 or n< 0:
+    if m <= 0 or n<= 0:
         return 0
     cache = [[0 for x in range(n+1)] for x in range(m+1)]
-    return dna_match_topdown_helper(DNA1, DNA1, m, n, cache)
+    return dna_match_topdown_helper(DNA1, DNA2, m, n, cache)
 
+print(dna_match_topdown("ace", "abcdef"))
