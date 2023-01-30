@@ -46,8 +46,8 @@ def dna_match_topdown_helper(DNA1, DNA2, m, n, cache):
 
 def dna_match_topdown(DNA1, DNA2):
 
-    m = len(DNA1)-1
-    n = len(DNA2)-1
+    m = len(DNA1)
+    n = len(DNA2)
     if m <= 0 or n<= 0:
         return 0
     cache = [[0 for x in range(n+1)] for x in range(m+1)]
