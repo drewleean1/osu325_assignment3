@@ -22,7 +22,7 @@ def dna_match_bottomup(DNA1, DNA2):
     return cache[m][n]                                          #return the bottom right value to get our answer
 
 def dna_match_topdown_helper(DNA1, DNA2, m, n, cache):
-    if m =< 0 or n =< 0:
+    if m <= 0 or n <= 0:
         return 0
     elif DNA1[m] == DNA2[n]:
         if cache[m-1][n-1] > 0:
