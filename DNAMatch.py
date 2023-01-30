@@ -25,16 +25,16 @@ def dna_match_topdown_helper(DNA1, DNA2, m, n, cache):
     if m <= 0 or n <= 0:
         return 0
     elif DNA1[m] == DNA2[n]:
-        if cache[m-1][n-1] >= 0:
+        if cache[m-1][n-1] > 0:
             temporary_result = 1 + cache[m-1][n-1]
         else:
             temporary_result = 1 + dna_match_topdown_helper(DNA1, DNA2, m-1, n-1, cache)
     else:
-        if cache[m-1][n] >= 0 and cache[m][n-1] >= 0:
+        if cache[m-1][n] > 0 and cache[m][n-1] > 0:
             temporary_result = max(cache[m-1][n], cache[m][n-1])
-        elif cache[m-1][n] >= 0:
+        elif cache[m-1][n] > 0:
             temporary_result = max(cache[m-1][n], dna_match_topdown_helper(DNA1, DNA2, m, n-1, cache))
-        elif cache[m][n-1] >= 0:
+        elif cache[m][n-1] > 0:
             temporary_result = max(dna_match_topdown_helper(DNA1, DNA2, m-1, n, cache), cache[m][n-1])
         else:
             temporary_result = max(dna_match_topdown_helper(DNA1, DNA2, m-1, n, cache), dna_match_topdown_helper(DNA1, DNA2, m, n-1, cache))
